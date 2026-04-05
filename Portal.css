@@ -1,0 +1,16 @@
+.portal-root{height:100%;display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
+.portal-header{flex-shrink:0;height:var(--header-h);background:linear-gradient(135deg,#060e06 0%,#0d1a0d 100%);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:relative;box-shadow:0 4px 24px rgba(0,0,0,.5);z-index:100}
+.portal-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(124,174,122,.2),transparent)}
+.portal-header-logo{display:flex;align-items:center;min-width:100px}
+.header-logo-img{height:34px;width:auto;max-width:180px;object-fit:contain;display:block;opacity:1}
+.header-logo-fb{display:flex;flex-direction:column;gap:1px}
+.header-logo-fb span{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;letter-spacing:.05em}
+.header-logo-fb small{font-size:8px;font-weight:700;letter-spacing:.2em;color:rgba(255,255,255,.35);text-transform:uppercase}
+.portal-header-right{display:flex;align-items:center;gap:10px}
+.user-pill{display:none;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:4px 12px 4px 5px}
+@media(min-width:480px){.user-pill{display:flex}}
+.user-av{width:26px;height:26px;background:linear-gradient(135deg,#3D4F3C,#4e6b4d);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;font-family:'Syne',sans-serif}
+.user-name{font-size:11px;font-weight:600;color:rgba(255,255,255,.5)}
+.btn-sair{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:7px 12px;cursor:pointer;font-family:'Syne',sans-serif;transition:all .2s}
+.btn-sair:hover{background:rgba(255,255,255,.12);color:#fff}
+.portal-content{flex:1;overflow:hidden;display:flex;flex-direction:column}
