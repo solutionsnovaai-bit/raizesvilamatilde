@@ -1,0 +1,154 @@
+/* ═══ PORTAL ROOT ═══ */
+.portal-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* ═══ HEADER ═══ */
+.portal-header {
+  flex-shrink: 0;
+  height: var(--header-h);
+  background: linear-gradient(135deg, #060e06 0%, #0a160a 50%, #0d1a0d 100%);
+  border-bottom: 1px solid rgba(124,174,122,.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  box-shadow: 0 4px 32px rgba(0,0,0,.6);
+  z-index: 100;
+  /* Animação de entrada */
+  animation: headerSlide .5s var(--ease) both;
+}
+
+@keyframes headerSlide {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Linha dourada no topo */
+.portal-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(184,149,106,.5) 30%,
+    rgba(124,174,122,.6) 50%,
+    rgba(184,149,106,.5) 70%,
+    transparent 100%
+  );
+  animation: shimmerLine 3s ease infinite;
+}
+
+@keyframes shimmerLine {
+  0%, 100% { opacity: .5; }
+  50%       { opacity: 1; }
+}
+
+/* Brilho verde suave no bottom */
+.portal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124,174,122,.15), transparent);
+}
+
+/* Logo */
+.portal-header-logo {
+  display: flex;
+  align-items: center;
+  min-width: 120px;
+}
+
+.header-logo-img {
+  height: 36px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  /* Clareia levemente para ficar bonito no header escuro */
+  filter: brightness(1.15) contrast(0.95);
+  transition: filter .3s, transform .3s;
+}
+.header-logo-img:hover {
+  filter: brightness(1.25) contrast(1);
+  transform: scale(1.03);
+}
+
+.header-logo-fb {
+  display: flex; flex-direction: column; gap: 1px;
+}
+.header-logo-fb span {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px; font-weight: 800;
+  color: #fff; letter-spacing: .08em;
+  text-transform: lowercase;
+}
+.header-logo-fb small {
+  font-size: 8px; font-weight: 700; letter-spacing: .22em;
+  color: rgba(255,255,255,.35); text-transform: uppercase;
+}
+
+/* Right side */
+.portal-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-pill {
+  display: none;
+  align-items: center; gap: 8px;
+  background: rgba(124,174,122,.08);
+  border: 1px solid rgba(124,174,122,.18);
+  border-radius: 20px;
+  padding: 4px 12px 4px 5px;
+  animation: fadeIn .4s .3s both;
+}
+@media (min-width: 480px) { .user-pill { display: flex; } }
+
+.user-av {
+  width: 26px; height: 26px;
+  background: linear-gradient(135deg, #3D4F3C, #4e6b4d);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800; color: #fff;
+  font-family: 'Syne', sans-serif;
+  box-shadow: 0 0 10px rgba(124,174,122,.3);
+}
+
+.user-name {
+  font-size: 11px; font-weight: 600;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .02em;
+}
+
+.btn-sair {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px; padding: 7px 12px;
+  cursor: pointer;
+  font-family: 'Syne', sans-serif;
+  transition: all .2s;
+  animation: fadeIn .4s .4s both;
+}
+.btn-sair:hover {
+  background: rgba(244,67,54,.1);
+  border-color: rgba(244,67,54,.25);
+  color: #ff6b6b;
+}
+
+/* ═══ PORTAL CONTENT ═══ */
+.portal-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
