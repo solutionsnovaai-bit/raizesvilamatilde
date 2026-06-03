@@ -1,0 +1,144 @@
+.tab-inner { max-width: 680px; margin: 0 auto; padding: 28px 16px 40px; }
+@media (min-width: 768px) { .tab-inner { padding: 40px 32px 56px; } }
+
+.tab-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 26px; font-weight: 800;
+  color: var(--tx); margin-bottom: 6px; line-height: 1.1;
+}
+@media (min-width: 768px) { .tab-title { font-size: 32px; } }
+
+.tab-sub { font-size: 13px; color: var(--tx2); margin-bottom: 26px; font-weight: 500; }
+
+/* Upload Zone */
+.upload-zone {
+  background: var(--bg-g);
+  border: 1.5px dashed var(--border2);
+  border-radius: var(--r3);
+  padding: 44px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .3s var(--ease);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.upload-zone::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(212,168,75,.04), transparent 60%);
+  pointer-events: none;
+}
+.upload-zone.drag,
+.upload-zone:hover {
+  border-color: rgba(212,168,75,.5);
+  background: rgba(212,168,75,.03);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(212,168,75,.15), 0 0 28px rgba(212,168,75,.07);
+}
+
+.up-icon {
+  width: 68px; height: 68px;
+  margin: 0 auto 18px;
+  background: rgba(74,78,85,.25);
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--slate-l);
+  border: 1px solid var(--border2);
+  transition: all .3s;
+}
+.upload-zone:hover .up-icon {
+  background: rgba(212,168,75,.1);
+  color: var(--gold-l);
+  border-color: rgba(212,168,75,.25);
+  transform: translateY(-3px);
+}
+.up-icon svg { width: 28px; height: 28px; }
+
+.upload-zone h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 800;
+  color: var(--tx); margin-bottom: 7px;
+}
+.upload-zone > p { font-size: 13px; color: var(--tx2); margin-bottom: 22px; font-weight: 500; }
+
+.type-chips {
+  display: flex; flex-wrap: wrap; gap: 7px;
+  justify-content: center; margin-bottom: 26px;
+}
+.type-chip {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px;
+  background: rgba(255,255,255,.04);
+  color: var(--tx2);
+  border: 1px solid var(--border);
+  transition: all .2s;
+}
+.upload-zone:hover .type-chip {
+  border-color: rgba(212,168,75,.2);
+  color: var(--gold);
+}
+.up-note { font-size: 11px; color: var(--tx3); margin-top: 12px; font-weight: 500; }
+
+/* Status Card */
+.status-card {
+  display: flex; align-items: center; gap: 18px;
+  background: var(--bg-g);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.s-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(74,78,85,.2); color: var(--slate-l);
+}
+.s-icon svg { width: 22px; height: 22px; }
+.s-icon.spin { animation: spin 1.4s linear infinite; }
+.s-icon.gold { background: rgba(212,168,75,.12); color: var(--gold); }
+.s-icon.ok   { background: rgba(111,168,112,.15); color: var(--verde-n); animation: none; }
+.s-icon.erro { background: rgba(244,67,54,.1);    color: #f44336;       animation: none; }
+.s-text { flex: 1; }
+.s-text h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px; font-weight: 800; color: var(--tx); margin-bottom: 4px;
+}
+.s-text p { font-size: 13px; color: var(--tx2); font-weight: 500; }
+.s-fname { font-size: 12px; color: var(--tx3); font-style: italic; margin-top: 2px; }
+
+.prog-bar {
+  width: 100%; height: 3px;
+  background: var(--border);
+  border-radius: 2px; overflow: hidden;
+  margin-top: 10px; position: relative;
+}
+.prog-fill {
+  height: 100%; border-radius: 2px;
+  background: linear-gradient(90deg, var(--slate), var(--ice));
+  transition: width .3s ease;
+}
+.prog-indet {
+  position: absolute; height: 100%; width: 40%; border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-l));
+  animation: indet 1.4s ease infinite;
+}
+.prog-pct { font-size: 11px; color: var(--tx3); font-weight: 700; margin-top: 4px; display: block; }
+
+.status-card.done { border-color: rgba(111,168,112,.2); }
+.status-card.err  { border-color: rgba(244,67,54,.2); }
+
+/* Tip */
+.tip-card {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(212,168,75,.04);
+  border: 1px solid rgba(212,168,75,.12);
+  border-radius: var(--r2);
+  padding: 14px 18px;
+  font-size: 13px; color: var(--tx2); line-height: 1.6;
+}
+.tip-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+.tip-card strong { color: var(--gold); }
